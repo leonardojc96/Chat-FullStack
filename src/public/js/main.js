@@ -100,19 +100,5 @@ $(function () {
     function displaymsgs(data){
         $chat.append('<b>' + data.nick + ':</b> '+ data.msg + '<br/>');
     }
-
-    $('#md').click(e => {
-        console.log('entra');
-        
-        e.preventDefault();
-        // $('#chatmd').show();
-    })
-
-    var md = document.getElementById('enviarmd');
-    
-    md.addEventListener('click', e => {
-        console.log('entro');
-        
-    });
 });
 

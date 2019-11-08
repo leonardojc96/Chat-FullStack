@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.7.7",
+    "netlify": "^2.4.8",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {

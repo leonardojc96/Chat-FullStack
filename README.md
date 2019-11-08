@@ -1,2 +1,2 @@
-# Chat-FullStack
-Chat tecnologias de JavaScript
+# Screenshot
+![alt text](docs/Screenshot.png)
