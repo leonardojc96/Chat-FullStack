@@ -1,4 +1,4 @@
-const Chat = require('./models/Chat');
+// const Chat = require('./models/Chat');
 
 
 // conexion socket del servidor
@@ -13,8 +13,8 @@ module.exports = (io) => {
     io.on('connection', async socket => {
         console.log('new user connected');
         
-        let messages = await Chat.find({}).limit(1);
-        socket.emit('load old msgs', messages);
+        // let messages = await Chat.find({}).limit(10);
+        // socket.emit('load old msgs', messages);
 
         socket.on('new user', (data, cb) => {
             
@@ -57,11 +57,11 @@ module.exports = (io) => {
                     cb('Error, pleace enter your message');
                 }
             }else {
-                var newmsg = new Chat({
-                    msg,
-                    nick: socket.nickname 
-                });
-                await newmsg.save();
+                // var newmsg = new Chat({
+                //     msg,
+                //     nick: socket.nickname 
+                // });
+                // await newmsg.save();
 
                 // esto los retransmite a todos 
                 io.sockets.emit('new message', {
@@ -81,6 +81,8 @@ module.exports = (io) => {
                 updateNicknames();
             }, 3000);
         })
+
+        socket.emit('get user', socket.nickname)
 
         function updateNicknames(){
             var users = {}

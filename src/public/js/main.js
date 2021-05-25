@@ -32,7 +32,7 @@ $(function () {
                 </div>
                 `).show();
             }
-            $username.val('');
+            // $username.val('');
         });
     });
 
@@ -51,7 +51,12 @@ $(function () {
 
     // escuchamos los eventos que vienen del servidor
     socket.on('new message', data => {
-        $chat.append('<b>' + data.nick + ':</b> '+ data.msg + '<br/>');
+        if (data.nick == $username.val()) {
+            $chat.append('<p style="float:right;"><b >' + data.nick + ':</b> '+ data.msg + '</p><br/>');
+        }
+        else{
+            $chat.append('<p><b>' + data.nick + ':</b> '+ data.msg + '</p><br/>');
+        }
     });
 
     // listamos los usuarios conectados
@@ -98,7 +103,13 @@ $(function () {
     })
 
     function displaymsgs(data){
-        $chat.append('<b>' + data.nick + ':</b> '+ data.msg + '<br/>');
+        if($username.val() == data.nick)
+        {
+            $chat.append('<b >' + data.nick + ':</b> '+ data.msg + '<br/>');
+        }
+        else{
+            $chat.append('<b>' + data.nick + ':</b> '+ data.msg + '<br/>');
+        }
     }
 });
 

@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const socketio = require('socket.io');
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const app = express();
 
@@ -18,9 +18,9 @@ const server =  http.createServer(app);
 const io = socketio.listen(server);
 
 // conexion con db
-mongoose.connect('mongodb://localhost/chat-database')
-    .then(db => console.log('db is connected'))
-    .catch(err => console.log(err));
+// mongoose.connect('mongodb://localhost/chat-database')
+//     .then(db => console.log('db is connected'))
+//     .catch(err => console.log(err));
 
 // settings 
 // le decimos que utilice el puerto del sistema operativo
